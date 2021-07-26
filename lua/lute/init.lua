@@ -52,7 +52,6 @@ lute.new_runner(
   "%.rs$",
   function (filename)
     return lute.write_command("rustc", filename)
-  end
-)
+  end)
 
 return lute
