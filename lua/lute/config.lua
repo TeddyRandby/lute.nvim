@@ -31,7 +31,7 @@ function M.write_template(template)
   io.output(file)
   local base = "local lute = require(\"lute\")\n\nlocal project = {\n\tcmd = {\n"
   for name, cmd in pairs(M.template_cmd[template]) do
-    base = base .. '\t\t' .. name .. ' = \"' .. cmd .. '\",\n'
+    base = base .. '\t\t' .. name .. ' = function() return lute.write_command(\"' .. cmd .. '\", \"\") end,\n'
   end
   base = base .. "\t}\n}\n\nlute.project = project"
   io.write(base)

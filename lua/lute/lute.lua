@@ -185,7 +185,7 @@ function M.run_project()
         prompt_title = "Run a command",
         results = entry_mapper(M.project.cmd),
         cb = function(picked)
-            run_command(M.write_command(M.project.cmd[picked], ""))
+            run_command(M.project.cmd[picked]())
         end,
       }
     else
