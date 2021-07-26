@@ -1,0 +1,10 @@
+local lute = require("lute")
+
+local project = {
+	cmd = {
+		build = "cargo run",
+		test = "cargo test",
+	}
+}
+
+lute.project = project
