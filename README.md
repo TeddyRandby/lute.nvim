@@ -116,3 +116,5 @@ for changes to take effect.
 
 Upon running ```lute.run_project()```, another telescope prompt will appear,
 and the chosen command will be run.
+
+There is an additional function ```lute.run_last()``` which just repeats whatever the previous command was.
