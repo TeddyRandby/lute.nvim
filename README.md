@@ -74,6 +74,14 @@ lute.new_runner(
 ```
 The first argument to ```lute.new_runner()``` is an alias for the patterns.
 The aliases exist to make changing runners easier.
+```
+-- ex: changing the js test framework
+        lute.set_runner({
+           lang: 'js/ts-test',
+           runner: 'mocha'
+        })
+
+```
 
 the second argument is the pattern of the file, and the third is the function
 which will be run whenever ```lute.run_file()``` is called and the pattern
@@ -94,13 +102,19 @@ local lute = require("lute")
 
 local project = {
 	cmd = {
-		build = "cargo run",
-		test = "cargo test",
+		start = function() return lute.write_command("npm run start", "") end,
+		test = function() return lute.write_command("npm run test", "") end,
+		dev = function() return lute.write_command("npm run dev", "") end,
 	}
 }
 
 lute.project = project
+
 ```
 lute runs this file once during setup, so the plugin will have to be reloaded
 for changes to take effect.
 
+Upon running ```lute.run_project()```, another telescope prompt will appear,
+and the chosen command will be run.
+
+There is an additional function ```lute.run_last()``` which just repeats whatever the previous command was.
