@@ -13,6 +13,7 @@ local M = {
       start = "npm run start",
       dev = "npm run dev",
       test = "npm run test",
+      build= "npm run build",
     },
   },
 }

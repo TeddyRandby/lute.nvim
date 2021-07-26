@@ -101,6 +101,7 @@ end
 -- Wrapper function for running nilable commands
 local function run_command(cmd)
   if (cmd) then
+    print(cmd)
     vim.cmd(cmd)
     M.last_command = cmd;
   end
@@ -158,8 +159,8 @@ local function pick(args)
         attach_mappings = function(buf, map)
           map('i', '<cr>', function()
             local result = state.get_selected_entry()[1]
-            args.cb(result)
             actions.close(buf)
+            args.cb(result)
           end)
           return true
         end
